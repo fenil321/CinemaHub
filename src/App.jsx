@@ -48,7 +48,7 @@ const App = () => {
     //console.log(data);
 
     if (data.Response === "True") {
-      setmovieList(data.Search); // ✅ set the actual list
+      setmovieList(data.Search); // set the actual list
       
       if (query && data.Search && data.Search.length > 0) {
         await updateSearchCount(query, data.Search[0]);
@@ -79,25 +79,6 @@ const loadTrendingMovies = async () => {
   }
 }
 
-
-  /* const fetchMovies = async (query = "the", page = 1) => {
-    try {
-      // for tmdb const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
-      const endpoint = `${API_BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(query)}&page=${page}`;
-      const response = await fetch(endpoint, API_OPTIONs);
-
-      if(!response){
-        throw new Error('Failed to fetch movies');
-      }
-
-      const data = await response.json();
-      console.log(data);
-      
-    } catch (error) {
-      console.error(`Error fetching movies: ${error}`);    
-      seterrorMessage('Error fetching movies. Please try again later.');
-    }
-  } */
   useEffect(() => {
     if (searchTerm.trim() === '') {
       fetchMovies('avengers'); // default sample movies
@@ -157,5 +138,3 @@ const loadTrendingMovies = async () => {
 }
 
 export default App
-
-//https://www.freepublicapis.com/api
